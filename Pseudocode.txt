@@ -1,0 +1,27 @@
+
+*Pseudocode for conversion*
+
+
+Scan the expression once from left to right.
+
+ While (last symbol not processed) 
+ { 
+   Scan the next symbol, S 
+   If S is an operand
+       Append it to the postfix expression
+   Endif
+   If S is a left bracket
+       Push it onto the stack 
+   Endif 
+   If S is a right bracket
+       Pop and append all symbols from the stack until the most recent left bracket.
+       Pop and discard the left bracket
+   Endif 
+   If S is an operator
+       Pop and append to the postfix expression every operator from the stack that is
+       above the most recently scanned left bracket and that has precedence greater
+       than or equal to the new operator.
+       Push the new operator on the stack 
+   Endif 
+ } 
+	   Pop and append to the postfix string everything from the stack 
